@@ -45,7 +45,8 @@ declare function local:create-group() as empty-sequence() {
     sm:create-group('mermedit')
 };
 
-declare function local:change-group() as empty-sequence() {
+
+declare function local:change-group() {
     sm:chgrp(xs:anyURI(concat($target, '/data')), 'mermedit'),
     sm:chmod(xs:anyURI(concat($target, '/data')), 'rwxrwxr-x'),
     dbutil:scan(xs:anyURI(concat($target, '/data')), function($collection, $resource) {
@@ -55,9 +56,19 @@ declare function local:change-group() as empty-sequence() {
         ) else
             ()
     })
-
 };
 
+
+
+declare function local:first-run() {
+    if (file:exists(concat($target, '/first-run'))) then 
+        (local:create-group(),
+        local:change-group(),
+        local:create-user(),
+        local:set-admin-password(),
+        file:delete(concat($target, '/first-run')))
+    else ()
+};
 
 declare function local:create-user() as empty-sequence() {
     let $opt :=
@@ -96,7 +107,4 @@ local:set-options(),
 local:force-xml-mime-type-xbl(),
 (: set admin password if provided. 
     NB, this has to be the last command otherwise the other commands will not be executed properly :) 
-local:create-group(),
-local:change-group(),
-local:create-user(),
-local:set-admin-password()
+local:first-run()
