@@ -740,6 +740,42 @@
                             </xf:repeat>
                         </h:fieldset>
 
+
+                        <h:fieldset>
+                            <h:legend>Table of contents <h:a class="help"> ?<h:span class="comment">List of the material contained within a resource, e.g. movements, acts, sections.<h:br/> </h:span>
+                                </h:a>
+                                <dcm:attribute-editor ref="m:contents"/>
+                            
+                            </h:legend>
+                            <h:div class="vertical_spacer"> </h:div>
+                            <dcm:create nodeset="m:contents" label="Add list of content" ref="." origin="xxf:instance('empty-instance')/m:meiHead/m:manifestationList/m:manifestation/m:contents"/>
+                            <dcm:create ref="m:contents" label="Add content" nodeset="m:contentItem" origin="xxf:instance('empty-instance')/m:meiHead/m:manifestationList/m:manifestation/m:contents/m:contentItem"/> 
+                            <xf:group ref="m:contents">
+                                <h:div>
+                                    <xf:repeat nodeset="m:contentItem" id="repeat-source-contentItem">                                
+                                        <dcm:create ref="m:contentItem" label="add locus" nodeset="m:locus" origin="xxf:instance('empty-instance')/m:meiHead/m:manifestationList/m:manifestation/m:contents/m:contentItem/m:locus"/>
+                                        <xf:repeat nodeset="m:locus" id="source-content-locus">
+                                                <xf:input ref="." class="long">
+                                                    <xf:label>Folio: </xf:label>
+                                                </xf:input>
+                                                <dcm:element-buttons triggers="add remove" nodeset="m:locus" index="repeat-source-contentItem" origin="xxf:instance('empty-instance')/m:meiHead/m:manifestationList/m:manifestation/m:contents/m:contentItem[1]/m:locus"/>
+                                                <dcm:id/>
+                                        </xf:repeat>
+                                        
+                                        <xf:group ref=".">
+                                        <xf:input ref="." class="long">
+                                            <xf:label>Content: </xf:label>
+                                        </xf:input>
+
+                                        <dcm:element-buttons triggers="remove" nodeset="m:contentItem" index="repeat-source-contentItem" origin="xxf:instance('empty-instance')/m:meiHead/m:manifestationList/m:manifestation/m:contents/m:contentItem[1]"/>
+                                        <dcm:id ref="."/>
+                                        <dcm:attribute-editor ref="."/>
+                                        <h:br/></xf:group>
+                            <dcm:create ref="." label="Add locus" nodeset="m:locus" origin="xxf:instance('empty-instance')/m:meiHead/m:manifestationList/m:manifestation/m:contents/m:contentItem/m:locus"/> 
+                                   </xf:repeat>
+                                </h:div> 
+                            </xf:group>
+                        </h:fieldset>
                     </xf:group>
                  </xf:group>
                 
