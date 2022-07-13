@@ -1,6 +1,6 @@
 MerMEId
 =======
-[![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8B%20%20%E2%97%8B-orange)](https://fair-software.eu)
+[![fair-software.eu](https://img.shields.io/badge/fair--software.eu)](https://fair-software.eu)
 [![Apache-2 License](https://img.shields.io/github/license/edirom/MerMEId)](https://github.com/Edirom/MerMEId/blob/develop/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/edirom/MerMEId.svg)](https://github.com/Edirom/MerMEId/releases)
 [![Docker Automated build](https://img.shields.io/docker/automated/edirom/mermeid)](https://hub.docker.com/r/edirom/mermeid/)
