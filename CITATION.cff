@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: MerMEId
+message: Please cite this software using these metadata.
+type: software
+authors:
+  - {}
+  - given-names: 'Sigfrid'
+    family-names: 'Lundberg'
+  - given-names: 'Axel'
+    family-names: 'Geertinger'
+  - given-names: 'Peter'
+    family-names: 'Stadler'
+  - given-names: 'Omar'
+    family-names: 'Siam'
+  - given-names: 'Daniel'
+    family-names: 'Jettka'
